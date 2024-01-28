@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    {% if session %}
+    <a href="{% url 'logout' %}" class="button">Logout</a>
+    {% else %}
+    <div id="admin-side">
+        <h2>Admin</h2>
+        <a href="{% url 'login' %}" class="button">Sign In</a>
+    </div>
+    <div id="user-side">
+        <h2>User</h2>
+        <a href="{% url 'login' %}" class="button">Sign In</a>
+    </div>
+    <script src="{% static 'js/home.js' %}"></script>
+    {% endif %}
+</body>
+</html>

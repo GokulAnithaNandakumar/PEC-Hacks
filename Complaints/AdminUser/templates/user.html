@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}User Page{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/user.css' %}">
+
+
+    <div class="container">
+        
+    <h2>We Saving Lives !!  Welcome, {{ session.userinfo.name }}!</h2>
+        <div id="chat-history">
+        </div>
+        <form id="messageForm">
+            {% csrf_token %}
+            <label for="message">Enter the character </label>
+            <input type="text" id="message" name="message" required>
+            <button type="button" onclick="sendMessage()">Send</button>
+            
+        </form>
+        <p id="response"></p>
+        
+    </div>
+    
+    <script src="{% static 'js/user.js' %}"></script>
+{% endblock %}
