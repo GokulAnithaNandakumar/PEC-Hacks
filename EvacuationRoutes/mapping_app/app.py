@@ -48,7 +48,7 @@ road_geo = []
 for i in road.road:
 
     i = i.replace(' ', '%20')
-    url = f'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={i}&inputtype=textquery&fields=geometry&key=AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4'
+    url = f'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={i}&inputtype=textquery&fields=geometry&key=${API_KEY}'
 
     res = requests.get(url)
     go = res.json()
@@ -73,4 +73,4 @@ if __name__ == '__main__':
     app.run(host="localhost", port=8000, debug=True)
 
 
-url = f'https://maps.googleapis.com/maps/api/geocode/json?address=Walmart+Falls+Church&key=AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4'
+url = f'https://maps.googleapis.com/maps/api/geocode/json?address=Walmart+Falls+Church&key=${API_KEY}'

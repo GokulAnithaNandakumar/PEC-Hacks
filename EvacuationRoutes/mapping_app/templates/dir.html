@@ -173,16 +173,16 @@
     <div id="map"></div>
     <script>
 
-<!--    if (navigator.geolocation) {-->
-<!--      navigator.geolocation.getCurrentPosition(showPosition);-->
-<!--    } else {-->
-<!--      alert("Geolocation is not supported by this browser.");-->
-<!--    }-->
-<!--    function showPosition(position) {-->
-<!--      console.log(position.cords.lat);-->
-<!--      console.log(position.cords.lng);-->
-<!--    document.getElementById("start").innerHTML = toString(position.cords);-->
-<!--    }-->
+// <!--    if (navigator.geolocation) {-->
+// <!--      navigator.geolocation.getCurrentPosition(showPosition);-->
+// <!--    } else {-->
+// <!--      alert("Geolocation is not supported by this browser.");-->
+// <!--    }-->
+// <!--    function showPosition(position) {-->
+// <!--      console.log(position.cords.lat);-->
+// <!--      console.log(position.cords.lng);-->
+// <!--    document.getElementById("start").innerHTML = toString(position.cords);-->
+// <!--    }-->
 
 
 
@@ -196,24 +196,24 @@
 
 
 
-<!--    function getAddressFromLatLng(latitude, longitude) {-->
-<!--    const apiKey = 'AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4'; // Replace with your actual API key-->
-<!--    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4`;-->
+// <!--    function getAddressFromLatLng(latitude, longitude) {-->
+// <!--    const apiKey = API_Key; // Replace with your actual API key-->
+// <!--    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;-->
 
-<!--    fetch(apiUrl)-->
-<!--        .then(response => response.json())-->
-<!--        .then(data => {-->
-<!--            if (data.status === 'OK') {-->
-<!--                const address = data.results[0].formatted_address;-->
-<!--                console.log('Address:', address);-->
-<!--            } else {-->
-<!--                console.error('Geocoding API request failed:', data.status);-->
-<!--            }-->
-<!--        })-->
-<!--        .catch(error => {-->
-<!--            console.error('Error fetching Geocoding API:', error);-->
-<!--        });-->
-<!--}-->
+// <!--    fetch(apiUrl)-->
+// <!--        .then(response => response.json())-->
+// <!--        .then(data => {-->
+// <!--            if (data.status === 'OK') {-->
+// <!--                const address = data.results[0].formatted_address;-->
+// <!--                console.log('Address:', address);-->
+// <!--            } else {-->
+// <!--                console.error('Geocoding API request failed:', data.status);-->
+// <!--            }-->
+// <!--        })-->
+// <!--        .catch(error => {-->
+// <!--            console.error('Error fetching Geocoding API:', error);-->
+// <!--        });-->
+// <!--}-->
 
 
 if (navigator.geolocation) {
@@ -232,14 +232,14 @@ function showPosition(position) {
 }
 
 function getAddressFromLatLng(latitude, longitude) {
-    const apiKey = 'AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4'; // Replace with your actual API key
+    const apiKey = AapiKey; // Replace with your actual API key
     const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             if (data.status === 'OK') {
-<!--                const address = data.results[0].compound_code;-->
+// <!--                const address = data.results[0].compound_code;-->
                 const address = data.results[0].formatted_address;
                 console.log('Address:', address);
                 // Update the input element with the obtained address
@@ -503,7 +503,7 @@ getAddressFromLatLng(latitude, longitude);
 google.maps.event.addDomListener(window, 'load', initMap);
 </script>
 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKeNwzfD57oUJeBw64KxIgRdtokIv6ZH4&libraries=places&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=${API_Key}&libraries=places&callback=initMap">
 </script>
 
 
