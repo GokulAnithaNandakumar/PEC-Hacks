@@ -137,9 +137,10 @@ def get_chat_history(request):
              for reply, timestamp in zip(replies, user_data.get('replies_timestamp', []))],
             key=lambda x: x['timestamp']
         )
-
+        print('sending chat history')
         return JsonResponse({'chat_history': chat_history}, status=202)
     else:
+        print("No chat history found!")
         return JsonResponse({}, status=203)
 
 

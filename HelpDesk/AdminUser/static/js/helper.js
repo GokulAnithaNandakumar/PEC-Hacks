@@ -102,7 +102,7 @@ function sendReply() {
             "Content-Type": "application/json",
             "X-CSRFToken": getCSRFToken(),
         },
-        body: JSON.stringify({ message: message }),
+        body: JSON.stringify({user:userActive, message: message }),
     })
         .then((response) => {
             if (response.status === 202) {
