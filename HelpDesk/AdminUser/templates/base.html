@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Site{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            align-items: center;
+            padding: 10px;
+            text-align: right;
+        }
+
+        header a{
+            color: white;
+            text-decoration: none;
+        }
+
+        nav {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        #content {
+            padding: 20px;
+            min-height: 400px; /* Adjust the height as needed */
+            background-color: #f0f0f0;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        {% if session %}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+    </header>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        © 2024 ResQAI. All rights reserved.
+    </footer>
+</body>
+</html>

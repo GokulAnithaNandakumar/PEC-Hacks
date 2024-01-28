@@ -26,7 +26,9 @@ pip install -r requirements.txt
 ```
 python example.py
 ```
+![Detection]('images/readme/detection.png')
 The count of people detected is displayed on the terminal along with the location coordinates.
+![Count]('images/readme/terminal.png')
 
 #### or
 
@@ -34,6 +36,7 @@ The count of people detected is displayed on the terminal along with the locatio
 streamlit run app.py
 ```
 The count of people detected is displayed on the screen along with the location coordinates.
+![Count]('images/readme/streamlit.png')
 
 
 - Both of these connects automatically to the webcam and starts detecting people, once every 2 seconds, and displays the resulting frame separately.
