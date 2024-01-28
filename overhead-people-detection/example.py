@@ -1,28 +1,23 @@
 from api import Detector
 
+import cv2
+from PIL import Image
+import datetime
+
 # # Initialize detector
 # detector = Detector(model_name='rapid',
 #                     weights_path='./weights/pL1_MWHB1024_Mar11_4000.ckpt',
 #                     use_cuda=False)
 
 # # A simple example to run on a single image and plt.imshow() it
-# detector.detect_one(img_path='./images/frame.jpg',
+# detector.detect_one(img_path='./images/test5.jpeg',
 #                     input_size=1024, conf_thres=0.3,
 #                     visualize=True)
 
 
-# detector = Detector(model_name='rapid',
-#                     weights_path='./weights/pL1_MWHB1024_Mar11_4000.ckpt',
-#                     use_cuda=False)
-
-import cv2
-from PIL import Image
-import datetime
-
-
 detector = Detector(model_name='rapid', weights_path='./weights/pL1_MWHB1024_Mar11_4000.ckpt', use_cuda=False)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('./videos/test8 - Trim.mp4')
 
 frame_count = 0
 
@@ -43,8 +38,9 @@ while True:
     
     if frame_count % 25 == 0:
         frame = Image.fromarray(frame)
-        detections = detector.detect_one(pil_img=frame, input_size=1024, conf_thres=0.2, return_img=True)
+        detections, count = detector.detect_one(pil_img=frame, input_size=1024, conf_thres=0.2, return_img=True)
         print('Time: ', current_time)
+        print('Number of people: ', count)
         
         frame = cv2.cvtColor(detections, cv2.COLOR_RGB2BGR)
         frame = cv2.resize(frame, (width, height))    
